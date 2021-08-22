@@ -94,7 +94,7 @@ export default {
   padding: 2.3rem;
   align-items: center;
   position: relative;
-  background-color: #39888c;
+  z-index: 11;
 }
 
 .nav .logo {
@@ -107,7 +107,7 @@ export default {
 
 .nav-bag {
   margin-left: auto;
-  padding-right: 2.3rem;
+  padding-right: 2.9rem;
 }
 
 .nav-navigation ul {
@@ -134,6 +134,7 @@ export default {
   width: 100%;
   display: flex;
   transition: 0.5s;
+  height: 100vh;
 }
 
 .nav-paths.open {
@@ -141,7 +142,6 @@ export default {
 }
 
 .nav-paths ul {
-  /* padding: 2.3rem; */
   background-color: #fff;
   width: 100%;
   display: flex;
@@ -158,10 +158,9 @@ export default {
   text-decoration: none;
   width: 100%;
   flex-direction: row;
-  widows: 100%;
+  font-size: 1.6rem;
   color: black;
-  /* padding: 1.1rem 0 1.1rem 0; */
-  /* cursor: pointer; */
+  align-items: baseline;
 }
 .nav-paths li:hover {
   background-color: rgb(0, 0, 0, 60%);
@@ -184,7 +183,7 @@ export default {
 
 .nav-icon--close {
   padding: 2.3rem;
-  width: 300px;
+  width: 100px;
   position: relative;
   cursor: pointer;
 }

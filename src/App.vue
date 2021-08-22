@@ -38,5 +38,6 @@ a {
 body {
   font-size: 1.4rem;
   line-height: 2rem;
+  color: #000;
 }
 </style>
