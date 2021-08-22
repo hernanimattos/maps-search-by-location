@@ -20,8 +20,21 @@
           <li v-for="(item, i) in menu" :key="`${i}-${item}`">
             <router-link :to="item.to">
               <span>{{ item.path }}</span
-              ><img src="../assets/images/icon_seta_direita.svg" alt=""
-            /></router-link>
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="6"
+                height="12"
+                fill="none"
+                viewBox="0 0 6 12"
+              >
+                <path
+                  fill="#1A1A1A"
+                  fill-rule="evenodd"
+                  d="M5.667 6.002c0 .167-.062.32-.164.436L1.51 11.096a.665.665 0 01-1.177-.43c0-.165.06-.316.161-.433L4.122 6 .498 1.772A.667.667 0 111.507.9l4 4.666.003.005a.664.664 0 01.157.425v.006z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </router-link>
           </li>
         </ul>
         <div class="nav-icon--close" v-on:click="hendleClickMenu">
@@ -49,15 +62,15 @@ export default {
   data: () => {
     const menu = [
       {
-        path: "home",
+        path: "Home",
         to: "/",
       },
       {
-        path: "home",
+        path: "Home",
         to: "/",
       },
       {
-        path: "home",
+        path: "Home",
         to: "/",
       },
     ];
@@ -128,16 +141,17 @@ export default {
 }
 
 .nav-paths ul {
-  padding: 2.3rem;
+  /* padding: 2.3rem; */
   background-color: #fff;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-
-.nav-paths li a span {
-  /* display: block; */
+.nav-paths li {
+  padding-left: 2.3rem;
+  padding-right: 2.3rem;
 }
+
 .nav-paths li a {
   display: flex;
   padding: 1.5rem 0 1.5rem 0;
@@ -145,15 +159,27 @@ export default {
   width: 100%;
   flex-direction: row;
   widows: 100%;
+  color: black;
   /* padding: 1.1rem 0 1.1rem 0; */
   /* cursor: pointer; */
 }
+.nav-paths li:hover {
+  background-color: rgb(0, 0, 0, 60%);
+  transition: 0.5s;
+}
+
+.nav-paths li:hover svg path,
+.nav-paths li:hover a {
+  color: rgba(250, 248, 248);
+  fill: #fff;
+  transition: 0.5s;
+}
+
 .nav-paths li a span {
   display: block;
 }
-.nav-paths li a img {
+.nav-paths li a svg {
   margin-left: auto;
-  /* width: 20px; */
 }
 
 .nav-icon--close {
