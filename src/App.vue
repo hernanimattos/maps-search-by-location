@@ -10,6 +10,7 @@
   --gutter: 1.6rem;
   --border-field-form: #d6d6d6;
   --bg-gray: #f7f7f7;
+  --gray: #737373;
 }
 html {
   font-family: 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
@@ -41,6 +42,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: #000;
 }
 body {
   font-size: 1.4rem;

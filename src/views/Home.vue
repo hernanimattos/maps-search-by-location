@@ -4,6 +4,10 @@
       <navigation />
       <news-promotion-header />
       <search />
+      <search-result />
+
+      <modal :open="true"><Map /></modal>
+
       <call-to-action v-bind="teste">
         <template #top>
           <img src="../assets/images/logos/logo_nike.svg" alt="" />
@@ -21,7 +25,6 @@
         </template>
       </call-to-action>
       <bottom />
-      <!-- <div id="map" ref="map"></div> -->
     </div>
   </container>
 </template>
@@ -33,11 +36,14 @@ import NewsPromotionHeader from '@/components/NewsPromotionHeader';
 import Search from '@/components/Search';
 import CallToAction from '@/components/CallToAction';
 import Bottom from '@/components/Bottom';
+import SearchResult from './SearchResult';
+import Modal from '@/components/Modal';
+import Map from '@/components/Map';
 
 export default {
   name: 'Home',
   data: () => ({
-    map: null,
+    // map: null,
     lat: null,
     lng: null,
 
@@ -173,6 +179,9 @@ export default {
     Search,
     CallToAction,
     Bottom,
+    SearchResult,
+    Modal,
+    Map,
   },
 };
 </script>
