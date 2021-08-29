@@ -6,7 +6,7 @@
       <search />
       <call-to-action v-bind="teste">
         <template #top>
-          <img src="../assets/images/logo_nike.svg" alt="" />
+          <img src="../assets/images/logos/logo_nike.svg" alt="" />
         </template>
         <template #description>
           <div class="description">
@@ -27,15 +27,15 @@
 </template>
 
 <script>
-import Container from "@/components/Container";
-import Navigation from "@/components/Navigation";
-import NewsPromotionHeader from "@/components/NewsPromotionHeader";
-import Search from "@/components/Search";
-import CallToAction from "@/components/CallToAction";
-import Bottom from "@/components/Bottom";
+import Container from '@/components/Container';
+import Navigation from '@/components/Navigation';
+import NewsPromotionHeader from '@/components/NewsPromotionHeader';
+import Search from '@/components/Search';
+import CallToAction from '@/components/CallToAction';
+import Bottom from '@/components/Bottom';
 
 export default {
-  name: "Home",
+  name: 'Home',
   data: () => ({
     map: null,
     lat: null,
@@ -43,8 +43,8 @@ export default {
 
     teste: {
       description:
-        " Cadastre-se e seja um dos primeiros a saber de todas as novidades e ofertas.",
-      bottom: "Cadastre-se",
+        ' Cadastre-se e seja um dos primeiros a saber de todas as novidades e ofertas.',
+      bottom: 'Cadastre-se',
     },
   }),
   methods: {

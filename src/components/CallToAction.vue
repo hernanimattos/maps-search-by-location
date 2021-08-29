@@ -38,10 +38,10 @@ export default {
 <style>
 .call-to-action {
   text-align: center;
-  color: #000;
+  color: var(--black);
   padding: 7.2rem 2.3rem 6.4rem 2.3rem;
   padding-bottom: 6.4rem;
-  background-color: #f7f7f7;
+  background-color: var(--bg-gray);
 }
 
 .call-to-action .top {
@@ -68,8 +68,8 @@ export default {
 }
 
 .call-to-action input {
-  color: #fff;
-  background-color: #000;
+  color: var(--white);
+  background-color: var(--black);
   padding: 1.6rem 2.4rem 1.6rem 2.4rem;
   border-radius: 30px;
   font-size: 1.6rem;

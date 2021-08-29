@@ -4,9 +4,16 @@
   </div>
 </template>
 <style>
+:root {
+  --black: #000;
+  --white: #fff;
+  --gutter: 1.6rem;
+  --border-field-form: #d6d6d6;
+  --bg-gray: #f7f7f7;
+}
 html {
-  font-family: "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 10px;
 }
 
@@ -38,6 +45,10 @@ a {
 body {
   font-size: 1.4rem;
   line-height: 2rem;
-  color: #000;
+  color: var(--black);
+}
+
+.pdb-1rem {
+  padding-bottom: 1rem;
 }
 </style>

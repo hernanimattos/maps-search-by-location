@@ -53,23 +53,23 @@
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
 export default {
-  name: "news-promotion-header",
+  name: 'news-promotion-header',
   data: () => {
     const slides = [
       {
-        title: `<img src=${require("../assets/images/logo_nike_snkrs.svg")}>`,
-        content: "xablau",
+        title: `<img src=${require('../assets/images/logos/logo_nike_snkrs.svg')}>`,
+        content: 'xablau',
       },
       {
-        title: `<img src=${require("../assets/images/logo_nike_snkrs.svg")}>`,
-        content: "xablau",
+        title: `<img src=${require('../assets/images/logos/logo_nike_snkrs.svg')}>`,
+        content: 'xablau',
       },
       {
-        title: "xablau",
-        content: "xablau description",
+        title: 'xablau',
+        content: 'xablau description',
       },
     ];
 
@@ -83,7 +83,7 @@ export default {
 
 <style>
 .vueperslides__arrows {
-  color: #0a0000;
+  color: var(--black);
 }
 .vueperslides__arrow--next {
   right: 2.5rem;
@@ -93,7 +93,7 @@ export default {
   left: 2.5rem;
 }
 .vueperslides__arrow {
-  background: #ffffff;
+  background: var(--white);
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 13px;

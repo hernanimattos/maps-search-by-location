@@ -1,10 +1,10 @@
 <template>
   <div class="nav">
     <div class="logo">
-      <img src="../assets/images/logo_nike.svg" alt="" />
+      <img src="../assets/images/logos/logo_nike.svg" alt="" />
     </div>
     <div class="nav-bag">
-      <img src="../assets/images/icon_sacola.svg" alt="" />
+      <img src="../assets/images/icons/icon_sacola.svg" alt="" />
     </div>
     <nav class="nav-navigation">
       <div class="nav-icon">
@@ -58,20 +58,20 @@
 
 <script>
 export default {
-  name: "navigation",
+  name: 'navigation',
   data: () => {
     const menu = [
       {
-        path: "Home",
-        to: "/",
+        path: 'Home',
+        to: '/',
       },
       {
-        path: "Home",
-        to: "/",
+        path: 'Home',
+        to: '/',
       },
       {
-        path: "Home",
-        to: "/",
+        path: 'Home',
+        to: '/',
       },
     ];
     return {
@@ -121,7 +121,7 @@ export default {
 
 .nav-icon span {
   display: block;
-  border-bottom: black 2px solid;
+  border-bottom: var(--black) 2px solid;
   width: 2rem;
   margin-bottom: 0.6rem;
 }
@@ -142,7 +142,7 @@ export default {
 }
 
 .nav-paths ul {
-  background-color: #fff;
+  background-color: var(--white);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@ export default {
   width: 100%;
   flex-direction: row;
   font-size: 1.6rem;
-  color: black;
+  color: var(--black);
   align-items: baseline;
 }
 .nav-paths li:hover {
@@ -170,7 +170,7 @@ export default {
 .nav-paths li:hover svg path,
 .nav-paths li:hover a {
   color: rgba(250, 248, 248);
-  fill: #fff;
+  fill: var(--white);
   transition: 0.5s;
 }
 

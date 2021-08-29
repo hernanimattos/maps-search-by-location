@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "search",
+  name: 'search',
 };
 </script>
 
@@ -29,27 +29,27 @@ export default {
 }
 
 .search .title {
-  margin-bottom: 3.2rem;
-  margin-top: 3.2rem;
+  margin-bottom: calc(var(--gutter) * 2);
+  margin-top: calc(var(--gutter) * 2);
   display: block;
   font-weight: 500;
-  font-size: 3.2rem;
+  font-size: calc(var(--gutter) * 2);
 }
 
 .search input {
-  border: solid 1px #d6d6d6;
+  border: solid 1px var(--border-field-form);
   padding: 1.8rem 1.8rem 1.8rem 4rem;
   border-radius: 30px;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: var(--gutter);
   font-weight: 400;
 }
 
 .icon-search {
-  background-image: url("../assets/images/icon_lupa.svg");
+  background-image: url('../assets/images/icons/icon_lupa.svg');
   background-repeat: no-repeat;
-  width: 16px;
-  height: 16px;
+  width: var(--gutter);
+  height: var(--gutter);
   top: 2rem;
   position: absolute;
   left: 1rem;
