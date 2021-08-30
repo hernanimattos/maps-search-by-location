@@ -27,8 +27,8 @@ class Provider {
     });
   }
 
-  get(url) {
-    return this._axios.get(url);
+  get(url, params = {}) {
+    return this._axios.get(url, { ...params });
   }
 
   post({ url, body }) {
