@@ -1,42 +1,93 @@
 const axios = require('axios');
-const Provider = require('./Provider');
 
-class MapProvider extends Provider {
-  constructor(axios, config) {
-    super(axios, config);
-    this.API_KEY = 'AIzaSyBYunBUkNtW9tDejcOnyTHfbAZXjjnqrcc';
-  }
+const axiosInstance = ({ baseURL, params }) => {
+  return axios.create({
+    baseURL,
+    ...params,
+  });
+};
 
-  async getClosestsStores({ location }) {
-    return await this._provider.get(`/textsearch/json?key=${this.API_KEY}`, {
-      params: {
-        query: 'centauro',
-        location,
-        rankby: 'distance',
-      },
+const mapContext = axiosInstance({
+  baseURL: 'https://maps.googleapis.com/maps/api/place',
+});
+
+export async function getStores({ query, location, rankby }) {
+  return await mapContext.get(`/textsearch/json`, {
+    params: {
+      query,
+      location,
+      rankby,
+      key: 'AIzaSyBYunBUkNtW9tDejcOnyTHfbAZXjjnqrcc',
+    },
+  });
+}
+
+export async function getDataNavigator() {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
+
+export async function getStoresWithDetails({ query, location, rankby }) {
+  try {
+    const data = getStores({ query, location, rankby });
+    const { results } = data;
+
+    const storeDetails = results.map(async (store) => {
+      const { place_id } = store;
+
+      const { data } = await getDetails({ id: place_id });
+      const { result } = data;
+      const { opening_hours } = result;
+
+      return {
+        ...store,
+        opening_hours,
+      };
     });
-  }
 
-  getDataNavigator() {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
-  }
-
-  config({ url, ...rest }) {
-    this._provider = this._axios.create({
-      baseURL: url,
-      ...rest,
-    });
+    return Promise.all(storeDetails);
+  } catch (error) {
+    console.log('erro in getStoresWithDetails:', error);
   }
 }
 
-const config = {
-  url: `https://maps.googleapis.com/maps/api/place`,
-};
+export async function getDetails({ id, fields = [] }) {
+  try {
+    return await mapContext.get(`/details/json?place_id=${id}`, {
+      params: {
+        fields: [...fields].join(''),
+        key: 'AIzaSyBYunBUkNtW9tDejcOnyTHfbAZXjjnqrcc',
+      },
+    });
+  } catch (error) {
+    console.log('erro in getDetails:', error);
+  }
+}
 
-const mapContext = new MapProvider(axios, config);
+export async function orderByNearStores(
+  locations = [],
+  { lat: currentLat, lng: curretLng }
+) {
+  try {
+    const closestStores = locations
+      .map((loc) => {
+        const { geometry } = loc;
+        const { location } = geometry;
+        const { lat, lng } = location;
 
-module.exports = {
-  mapContext,
-};
+        const result =
+          Math.pow(lat - currentLat, 2) + Math.pow(lng - curretLng, 2);
+
+        return {
+          ...loc,
+          distance: result,
+        };
+      })
+      .sort((a, b) => a.distance - b.distance);
+
+    return closestStores;
+  } catch (error) {
+    console.log('erro in orderByNearStores:', error);
+  }
+}
