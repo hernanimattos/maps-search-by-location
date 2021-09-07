@@ -8,37 +8,11 @@
       slide-image-inside
     >
       <template #arrow-left>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="6"
-          height="12"
-          fill="none"
-          viewBox="0 0 6 12"
-        >
-          <path
-            fill="#1A1A1A"
-            fill-rule="evenodd"
-            d="M.333 6.002c0 .167.063.32.165.436l3.992 4.658a.665.665 0 001.177-.43.664.664 0 00-.16-.433L1.877 6l3.625-4.228A.667.667 0 104.494.9l-4 4.666-.004.005a.664.664 0 00-.156.425v.006z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        <img src="../assets/images/icons/icon_seta_esquerda.svg" alt="" />
       </template>
 
       <template #arrow-right>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="6"
-          height="12"
-          fill="none"
-          viewBox="0 0 6 12"
-        >
-          <path
-            fill="#1A1A1A"
-            fill-rule="evenodd"
-            d="M5.667 6.002c0 .167-.062.32-.164.436L1.51 11.096a.665.665 0 01-1.177-.43c0-.165.06-.316.161-.433L4.122 6 .498 1.772A.667.667 0 111.507.9l4 4.666.003.005a.664.664 0 01.157.425v.006z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        <img src="../assets/images/icons/icon_seta_direita.svg" alt="" />
       </template>
       <vueper-slide
         v-for="(slide, i) in slides"

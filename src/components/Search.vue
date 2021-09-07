@@ -1,7 +1,7 @@
 <template>
   <section class="search">
     <h3 class="title">Lojas</h3>
-    <form>
+    <form @submit="getSearch">
       <div class="field">
         <label class="field-label">
           <span class="icon-search"> </span>
@@ -10,6 +10,7 @@
             type="search"
             name="search"
             placeholder="Buscar por coordenada"
+            v-model="search"
           />
         </label>
       </div>
@@ -20,6 +21,14 @@
 <script>
 export default {
   name: 'search',
+  data: () => ({
+    search: '',
+  }),
+  methods: {
+    getSearch() {
+      console.log(this.data);
+    },
+  },
 };
 </script>
 

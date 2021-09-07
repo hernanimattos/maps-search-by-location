@@ -11,12 +11,13 @@ const mapContext = axiosInstance({
   baseURL: 'https://maps.googleapis.com/maps/api/place',
 });
 
-export async function getStores({ query, location, rankby }) {
+export async function getStores({ query, location, rankby, nextpage }) {
   return await mapContext.get(`/textsearch/json`, {
     params: {
       query,
       location,
       rankby,
+      nextpage,
       key: 'AIzaSyBYunBUkNtW9tDejcOnyTHfbAZXjjnqrcc',
     },
   });
@@ -28,10 +29,15 @@ export async function getDataNavigator() {
   });
 }
 
-export async function getStoresWithDetails({ query, location, rankby }) {
+export async function getStoresWithDetails({
+  query,
+  location,
+  rankby,
+  nextpage,
+}) {
   try {
-    const data = getStores({ query, location, rankby });
-    const { results } = data;
+    const { data } = await getStores({ query, location, rankby, nextpage });
+    const { results, next_page_token } = data;
 
     const storeDetails = results.map(async (store) => {
       const { place_id } = store;
@@ -46,7 +52,10 @@ export async function getStoresWithDetails({ query, location, rankby }) {
       };
     });
 
-    return Promise.all(storeDetails);
+    return {
+      next_page_token,
+      result: await Promise.all(storeDetails),
+    };
   } catch (error) {
     console.log('erro in getStoresWithDetails:', error);
   }
@@ -91,3 +100,7 @@ export async function orderByNearStores(
     console.log('erro in orderByNearStores:', error);
   }
 }
+
+// export function workDays ({openingHours}) {
+
+// }

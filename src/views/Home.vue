@@ -6,7 +6,9 @@
       <search />
       <search-result />
 
-      <modal :open="true"><MapContainer /></modal>
+      <modal :open="true"
+        ><MapContainer :icon="'../assets/images/icons/icon_pin_mapa.svg'"
+      /></modal>
 
       <call-to-action v-bind="teste">
         <template #top>
