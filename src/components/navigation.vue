@@ -147,7 +147,7 @@ export default {
   background-color: var(--white);
   width: 100%;
   display: flex;
-  flex-direction: column;
+  giflex-direction: column;
 }
 .nav-paths li {
   padding-left: 2.3rem;
