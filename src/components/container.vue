@@ -19,4 +19,6 @@ export default {
   overflow: hidden;
   position: relative;
 }
+.teste {
+}
 </style>
