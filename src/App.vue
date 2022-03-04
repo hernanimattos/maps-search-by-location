@@ -13,9 +13,10 @@ export default {
   beforeCreate: () => {
 
     const appInsights = new ApplicationInsights({ config: {
-  instrumentationKey: 'InstrumentationKey=3c56c89f-43e0-4de0-9971-900ab2f3a2e1;IngestionEndpoint=https://westus2-2.in.applicationinsights.azure.com'
+  instrumentationKey: '3c56c89f-43e0-4de0-9971-900ab2f3a2e1'
   /* ...Other Configuration Options... */
 } });
+console.log(appInsights)
 appInsights.loadAppInsights();
 appInsights.trackPageView(); 
   }
