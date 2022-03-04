@@ -11,6 +11,16 @@
     />
 
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+      var snippet = {
+        config: {
+          instrumentationKey: '3c56c89f-43e0-4de0-9971-900ab2f3a2e1',
+        },
+      };
+      var init = new Microsoft.ApplicationInsights.ApplicationInsights(snippet);
+      var appInsights = init.loadAppInsights();
+      appInsights.trackPageView();
+    </script>
   </head>
   <body>
     <noscript>
