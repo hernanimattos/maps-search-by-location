@@ -3,6 +3,26 @@
     <router-view />
   </div>
 </template>
+
+<script>
+
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+export default {
+  name: 'App',
+  beforeCreate: () => {
+
+    const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: 'InstrumentationKey=3c56c89f-43e0-4de0-9971-900ab2f3a2e1;IngestionEndpoint=https://westus2-2.in.applicationinsights.azure.com'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView(); 
+  }
+  }
+
+</script>
+
 <style>
 :root {
   --black: #000;

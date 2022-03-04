@@ -10,6 +10,7 @@
     "fix": "ss"
   },
   "dependencies": {
+    "@microsoft/applicationinsights-web": "^2.7.4",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
